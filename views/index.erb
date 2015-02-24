@@ -1,0 +1,21 @@
+<h1>Bestaurants</h1>
+<h3>The best restaurants in Portland</h3>
+
+<form action="/restaurants" method="post">
+  <label for="name">Add Name:</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Go!</button>
+</form>
+
+<ul>
+<% if @restaurants.any? %>
+<% @restaurants.each do |restaurant| %>
+<li><a href="/restaurants/<%= restaurant.id() %>"><%= restaurant.name %> </a></li>
+<% end %>
+</ul>
+
+<% else %>
+
+<p>There are no restaurants yet </p>
+<% end %>

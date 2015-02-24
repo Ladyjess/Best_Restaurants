@@ -1,0 +1,30 @@
+<h1>Menu </h1>
+
+<form action="/food_types" method="post">
+  <input id="restaurant_id" name="restaurant_id" type="hidden" value="<%= @restaurant.id() %>">
+
+  <label for="name">Enter the name</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Go</button>
+</form>
+
+
+  <% if @restaurant.food_types.any? %>
+  <p>Here are the best items on the menu:</p>
+
+  <ul>
+    <% @restaurant.food_types().each() do |food_type| %>
+    <li><%= food_type.name() %></li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>There are no food types yet!</p>
+  <% end %>
+
+
+<p><a href="/restaurants/<%= @restaurant.id %>/edit">Edit <%= @restaurant.name %> </a></p>
+
+
+
+  <a href="/">Return to Main Page</a>

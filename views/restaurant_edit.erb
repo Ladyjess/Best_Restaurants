@@ -1,0 +1,11 @@
+<h1>Update <%= @restaurant.name %> </h1>
+
+
+<form action="/restaurants/<%= @restaurant.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+
+  <label for="name">Rename Restaurant</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit"> Update</button>
+</form>
